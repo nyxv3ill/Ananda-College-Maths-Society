@@ -22,8 +22,9 @@ nav {
   align-items: center;
   padding: 0 20px;
   background: #ede0d4;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 10px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 2px 10px;
   z-index: 1;
+  position: fixed;
 }
 
 .navBrand {
@@ -96,26 +97,80 @@ nav ul li a {
     align-items: center;
     text-align: center;
   }
+
+  nav ul.toggled {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 10px;
+    top: 90px;
+    align-items: end;
+    border-radius: 12px;
+    box-shadow: #00000049 0 0 10px;
+    padding: 20px;
+  }
+
+  nav ul.toggled li {
+    display: block;
+    width: 100%;
+    text-align: right;
+  }
 }
 
-nav ul.toggled {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  right: 10px;
-  top: 90px;
-  align-items: end;
-  border-radius: 12px;
-  box-shadow: #00000049 0 0 10px;
-  padding: 20px;
-}
+@media screen and (max-width: 350px) {
+  nav {
+    height: 60px;
+  }
 
-nav ul.toggled li {
-  display: block;
-  width: 100%;
-  text-align: right;
+  nav .navBrand .navLogo {
+    width: 30px;
+  }
+
+  nav .navBrand .navTitle {
+    font-size: 18px
+  }
+
+  nav #navToggle {
+    font-size: 14px;
+  }
+
+  nav ul.toggled {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 10px;
+    top: 70px;
+    align-items: end;
+    border-radius: 12px;
+    box-shadow: #00000049 0 0 10px;
+    padding: 20px;
+  }
+
+  nav ul.toggled li {
+    display: block;
+    width: 100%;
+    text-align: right;
+  }
 }
 
 #main {
   width: 100%;
+  height: 100vh;
+  background: #DDB892;
+  display: flex;
+}
+
+#main .bg {
+  width: 100%;
+  height: 100%;
+  background: url("/banner.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  filter: blur(5px);
+}
+
+#main .content{
+  margin: ;
 }
