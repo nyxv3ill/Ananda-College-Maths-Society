@@ -1,0 +1,103 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+nav{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: rgba(128, 128, 128, 0.507) 0px 2px 10px;
+}
+
+nav .navLogo{
+    width: 40px;
+    border-radius: 50%;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav #navToggle{
+    display: none;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background ease-in-out 0.2s;
+    width: 40px;
+    height: 40px;
+}
+
+nav #navToggle:hover{
+    background: #f1f1f1;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background ease-in-out 0.2s,
+                box-shadow ease-in-out 0.2s;
+    box-shadow: none;
+}
+
+nav ul li:hover{
+    box-shadow: inset #00000007 0 0 5px;
+    background-color: #f1f1f1;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #000013;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 550px) {
+    nav ul{
+        display: none;
+    }
+    
+    nav #navToggle{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+nav ul.toggled{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 10px;
+    top: 90px;
+    align-items: end;
+    border-radius: 12px;
+    box-shadow: #00000049 0 0 10px;
+    padding: 20px;
+}
+
+nav ul.toggled li{
+    display: block;
+    width: 100%;
+    text-align: right;
+}
