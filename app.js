@@ -2,8 +2,8 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-const HOST = "0.0.0.0";
+const PORT = process.env.PORT || 3000;
+const HOST = "localhost";
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
