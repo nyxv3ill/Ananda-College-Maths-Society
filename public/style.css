@@ -16,7 +16,7 @@ body {
 
 nav {
   width: 100%;
-  height: 80px;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,12 +34,12 @@ nav {
 }
 
 nav .navBrand .navLogo {
-  width: 40px;
+  width: 30px;
 }
 
 nav .navBrand .navTitle {
   color: #7f5539;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -81,7 +81,7 @@ nav ul li:hover {
 nav ul li a {
   text-decoration: none;
   color: #7f5539;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
 }
 
@@ -103,7 +103,7 @@ nav ul li a {
     flex-direction: column;
     position: absolute;
     right: 10px;
-    top: 90px;
+    top: 70px;
     align-items: end;
     border-radius: 12px;
     box-shadow: #00000049 0 0 10px;
@@ -119,19 +119,23 @@ nav ul li a {
 
 @media screen and (max-width: 350px) {
   nav {
-    height: 60px;
+    height: 40px;
   }
 
   nav .navBrand .navLogo {
-    width: 30px;
+    width: 20px;
+  }
+
+  nav .navBrand {
+    gap: 10px;
   }
 
   nav .navBrand .navTitle {
-    font-size: 18px
+    font-size: 14px;
   }
 
   nav #navToggle {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   nav ul.toggled {
@@ -139,28 +143,37 @@ nav ul li a {
     flex-direction: column;
     position: absolute;
     right: 10px;
-    top: 70px;
+    top: 50px;
     align-items: end;
     border-radius: 12px;
     box-shadow: #00000049 0 0 10px;
-    padding: 20px;
+    padding: 10px;
+  }
+
+  nav ul.toggled {
+    gap: 5px;
+  }
+
+  nav ul.toggled li a {
+    font-size: 10px;
   }
 
   nav ul.toggled li {
     display: block;
     width: 100%;
     text-align: right;
+    padding: 5px;
   }
 
   #main .content {
-    top: 60px;
+    top: 40px;
   }
 }
 
 #main {
   width: 100%;
   height: 100vh;
-  background: #DDB892;
+  background: #ddb892;
   display: flex;
   z-index: 0;
 }
