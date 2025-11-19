@@ -211,6 +211,10 @@ section .content {
     align-items: center;
   }
 
+  #main .content .logo {
+    margin-bottom: 40px;
+  }
+
   #main .content .titlecontainer .title {
     color: var(--hover);
     font-size: 45px;
@@ -268,9 +272,17 @@ section .content {
     width: 100%;
     text-align: right;
   }
+
   #main .content .logo {
     width: 400px;
     margin-bottom: 40px;
+  }
+
+  #main .content .titlecontainer .tagline {
+    margin-top: 5px;
+  }
+  #main .content .titlecontainer .joinus {
+    margin-top: 40px;
   }
 }
 
