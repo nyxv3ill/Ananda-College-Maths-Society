@@ -18,8 +18,6 @@
 
 body {
   background-color: #000013;
-  display: flex;
-  flex-direction: column;
   width: 100%;
   height: 1000vh;
 }
@@ -31,7 +29,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  background: rgb(0, 0, 19, 0.8);
+  background: rgb(0, 0, 19);
   box-shadow: rgba(0, 0, 0, 0.5) 0 2px 10px;
   z-index: 3;
   position: fixed;
@@ -55,7 +53,7 @@ nav .navBrand .navTitle {
   margin-left: 10px;
 }
 
-nav ul {
+nav #nav {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -77,7 +75,7 @@ nav #navToggle:hover {
   color: var(--main);
 }
 
-nav ul li {
+nav #nav li {
   list-style: none;
   display: inline-block;
   padding: 10px;
@@ -86,16 +84,16 @@ nav ul li {
   box-shadow: none;
 }
 
-nav ul li:hover {
+nav #nav li:hover {
   box-shadow: inset #0000006d 0 0 5px;
   background: var(--hover);
   color: var(--main);
 }
-nav ul li:hover a {
+nav #nav li:hover a {
   color: var(--main);
 }
 
-nav ul li a {
+nav #nav li a {
   transition: color ease-in-out 0.2s;
   text-decoration: none;
   color: var(--text);
@@ -104,9 +102,11 @@ nav ul li a {
 }
 
 @media screen and (max-width: 700px) {
-  nav ul {
+  nav #nav {
     display: none;
     background: rgb(0, 0, 19, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
 
   nav #navToggle {
@@ -116,7 +116,7 @@ nav ul li a {
     text-align: center;
   }
 
-  nav ul.toggled {
+  nav #nav.toggled {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -128,7 +128,7 @@ nav ul li a {
     padding: 20px;
   }
 
-  nav ul.toggled li {
+  nav #nav.toggled li {
     display: block;
     width: 100%;
     text-align: right;
@@ -165,7 +165,7 @@ nav ul li a {
     font-size: 12px;
   }
 
-  nav ul.toggled {
+  nav #nav.toggled {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -177,15 +177,15 @@ nav ul li a {
     padding: 10px;
   }
 
-  nav ul.toggled {
+  nav #nav.toggled {
     gap: 5px;
   }
 
-  nav ul.toggled li a {
+  nav #nav.toggled li a {
     font-size: 10px;
   }
 
-  nav ul.toggled li {
+  nav #nav.toggled li {
     display: block;
     width: 100%;
     text-align: right;
@@ -199,7 +199,7 @@ nav ul li a {
 
 section {
   display: flex;
-  z-index: 0;
+  z-index: 2;
   width: 100%;
   height: 100vh;
   background: var(--main);
@@ -214,9 +214,8 @@ section .content {
 
 #main .content {
   margin-top: 60px;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 #main .bg {
@@ -232,21 +231,124 @@ section .content {
   opacity: 0.1;
 }
 
-#main .content .title {
+#main .content .titlecontainer .title {
   color: var(--hover);
-  font-size: 50px;
+  font-size: 60px;
   text-align: center;
 }
 
 #main .content .logo {
-  width: auto;
-  height: 300px;
-  margin-bottom: 50px;
+  width: 700px;
+  height: auto;
 }
 
-#main .content .tagline {
+#main .content .titlecontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#main .content .titlecontainer .tagline {
   color: var(--text);
+  font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 15px;
   margin-top: 20px;
+}
+
+#main .content .titlecontainer .joinus {
+  margin-top: 50px;
+  background-color: var(--hover);
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-size: 20px;
+  color: var(--main);
+  box-shadow: var(--hover) 0 0 10px;
+}
+
+#main .content .joinus:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1500px) {
+  #main .content .titlecontainer .title {
+    color: var(--hover);
+    font-size: 50px;
+    text-align: center;
+  }
+
+  #main .content .titlecontainer .tagline {
+    color: var(--text);
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    margin-top: 20px;
+  }
+  #main .content .logo {
+    width: 600px;
+  }
+
+  #main .content .titlecontainer .joinus {
+    margin-top: 40px;
+    background-color: var(--hover);
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 15px;
+    color: var(--main);
+    box-shadow: var(--hover) 0 0 10px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  #main .content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #main .content .titlecontainer .title {
+    color: var(--hover);
+    font-size: 45px;
+    text-align: center;
+  }
+
+  #main .content .titlecontainer .tagline {
+    color: var(--text);
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    margin-top: 20px;
+  }
+
+  #main .content .titlecontainer .joinus {
+    margin-top: 40px;
+    background-color: var(--hover);
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 15px;
+    color: var(--main);
+    box-shadow: var(--hover) 0 0s 10px;
+  }
+}
+
+#about .content {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+#about .content p {
+  text-align: justify;
+  margin: 20px;
+}
+#about .content button {
+  width: 200px;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid rgb(12, 12, 98);
+  border-radius: 20px;
+  color: white;
+  margin-bottom: 10px;
+  margin-left: 10px;
 }
