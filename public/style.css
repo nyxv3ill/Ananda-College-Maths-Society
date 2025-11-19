@@ -1,3 +1,12 @@
+:root {
+  --main: #000013;
+  --text: #f2f4ff;
+  --cards: #0a0a33;
+  --hover: #2de2e6;
+  --button: #6c63ff;
+  --alert: #ff4fa3;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -8,6 +17,7 @@
 }
 
 body {
+  background-color: #000013;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -21,7 +31,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  background: #ede0d4;
+  background: var(--main);
   box-shadow: rgba(0, 0, 0, 0.5) 0 2px 10px;
   z-index: 3;
   position: fixed;
@@ -38,7 +48,7 @@ nav .navBrand .navLogo {
 }
 
 nav .navBrand .navTitle {
-  color: #7f5539;
+  color: var(--text);
   font-size: 20px;
   font-weight: bold;
 }
@@ -57,11 +67,11 @@ nav #navToggle {
   transition: background ease-in-out 0.2s;
   width: 40px;
   height: 40px;
-  color: #7f5539;
+  color: var(--text);
 }
 
 nav #navToggle:hover {
-  background: #e6ccb2;
+  background: var(--hover);
 }
 
 nav ul li {
@@ -74,21 +84,26 @@ nav ul li {
 }
 
 nav ul li:hover {
-  box-shadow: inset #00000007 0 0 5px;
-  background: #e6ccb2;
+  box-shadow: inset #0000006d 0 0 5px;
+  background: var(--hover);
+  color: var(--main);
+}
+nav ul li:hover a {
+  color: var(--main);
 }
 
 nav ul li a {
+  transition: color ease-in-out 0.2s;
   text-decoration: none;
-  color: #7f5539;
+  color: var(--text);
   font-size: 12px;
   font-weight: bold;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 700px) {
   nav ul {
     display: none;
-    background: #ede0d4;
+    background: var(--main);
   }
 
   nav #navToggle {
@@ -170,23 +185,23 @@ nav ul li a {
   }
 }
 
-#main {
-  width: 100%;
-  height: 100vh;
-  background: #ddb892;
+section {
   display: flex;
   z-index: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--main);
 }
 
 #main .bg {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url("/banner.png");
+  background: url("/hero.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.2;
   filter: blur(5px);
   z-index: 1;
+  opacity: 0.1;
 }
