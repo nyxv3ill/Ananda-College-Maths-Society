@@ -1,5 +1,4 @@
-/*
-:root{
+:root {
   --main: #000013;
   --text: #f2f4ff;
   --cards: #0a0a33;
@@ -7,16 +6,16 @@
   --button: #6c63ff;
   --alert: #ff4fa3;
 }
-*/
 
+/* 
 :root {
-  --main: #000013;
+  --main: #250602;
   --text: #f2f4ff;
-  --cards: #0a0a33;
-  --hover: rgb(233, 113, 113)
+  --cards: #d22d18;
+  --hover: rgb(233, 113, 113);
   --button: #6c63ff;
   --alert: #ff4fa3;
-}
+} */
 
 * {
   padding: 0;
@@ -40,7 +39,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  background: rgb(0, 0, 19);
+  background: var(--main);
   box-shadow: rgba(0, 0, 0, 0.5) 0 2px 10px;
   z-index: 3;
   position: fixed;
@@ -254,9 +253,7 @@ section .content {
 @media screen and (max-width: 700px) {
   nav #nav {
     display: none;
-    background: rgb(0, 0, 19, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: var(--main);
   }
 
   nav #navToggle {
@@ -291,22 +288,48 @@ section .content {
 
   #main .content .titlecontainer .tagline {
     margin-top: 5px;
+    text-align: center;
   }
+
   #main .content .titlecontainer .joinus {
     margin-top: 40px;
   }
 }
 
-@media screen and (max-width: 550px) {
-  #main .content .title {
-    font-size: 40px !important;
+@media screen and (max-width: 600px) {
+  #main .content .logo {
+    width: 300px;
+  }
+
+  #main .content .titlecontainer .title {
+    font-size: 35px;
+  }
+
+  #main .content .titlecontainer .tagline {
+    font-size: 10px;
+  }
+
+  #main .content .titlecontainer .joinus {
+    font-size: 12px;
+    padding: 8px 15px;
+    margin-top: 30px;
   }
 }
 
-@media screen and (max-width: 350px) {
-  #main .content .title {
-    font-size: 20px !important;
+@media screen and (max-width: 360px) {
+  #main .content .titlecontainer .title {
+    font-size: 20px;
   }
+
+  #main .content .titlecontainer .tagline {
+    font-size: 8px;
+    letter-spacing: 8px;
+  }
+
+  #main .content .logo {
+    width: 200px;
+  }
+
   nav {
     height: 40px;
   }
@@ -361,14 +384,15 @@ section .content {
 
 #about .content {
   color: white;
-  display: flex;
   flex-direction: column;
   text-align: center;
 }
+
 #about .content p {
   text-align: justify;
   margin: 20px;
 }
+
 #about .content button {
   width: 200px;
   padding: 10px;
@@ -379,14 +403,12 @@ section .content {
   margin-bottom: 10px;
   margin-left: 10px;
 }
+
 #about .content button:hover {
   border: 1px solid rgb(80, 80, 222);
 }
-#projects {
-  width: 100%;
-}
+
 #projects .content {
   color: white;
-  width: 100%;
   text-align: center;
 }
