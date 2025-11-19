@@ -1,8 +1,19 @@
-:root {
+/*
+:root{
   --main: #000013;
   --text: #f2f4ff;
   --cards: #0a0a33;
   --hover: #2de2e6;
+  --button: #6c63ff;
+  --alert: #ff4fa3;
+}
+*/
+
+:root {
+  --main: #000013;
+  --text: #f2f4ff;
+  --cards: #0a0a33;
+  --hover: rgb(233, 113, 113)
   --button: #6c63ff;
   --alert: #ff4fa3;
 }
@@ -370,4 +381,12 @@ section .content {
 }
 #about .content button:hover {
   border: 1px solid rgb(80, 80, 222);
+}
+#projects {
+  width: 100%;
+}
+#projects .content {
+  color: white;
+  width: 100%;
+  text-align: center;
 }
