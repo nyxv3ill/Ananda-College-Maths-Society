@@ -29,7 +29,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: clamp(56px, 7vh, 80px);
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y;
 }
 
 * {
