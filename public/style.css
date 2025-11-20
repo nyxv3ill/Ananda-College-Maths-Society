@@ -29,7 +29,6 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: clamp(56px, 7vh, 80px);
-  scroll-snap-type: y mandatory;
 }
 
 * {
@@ -105,8 +104,8 @@ nav .navBrand .navTitle {
   font-size: clamp(1rem, 2vw, 1.3rem);
   font-weight: bold;
   border-left: var(--text) solid 2px;
-  padding-left: 10px;
-  margin-left: 10px;
+  padding-left: 30px;
+  margin-left: 20px;
   white-space: nowrap;
 }
 
@@ -173,8 +172,6 @@ section {
   position: relative;
   z-index: 2;
   min-height: 100vh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
 section::after {
@@ -197,12 +194,13 @@ section::after {
 section .content {
   display: flex;
   flex-direction: column;
-  width: min(1200px, 100%);
+  width: min(1600px, 100%);
   min-height: 100%;
   padding: clamp(3rem, 7vw, 5rem) clamp(1.5rem, 6vw, 4rem);
   margin: 0 auto;
   gap: clamp(1.5rem, 3vw, 2.5rem);
   background: transparent;
+  align-items: center;
 }
 
 #main {
@@ -278,47 +276,57 @@ section .content {
   box-shadow: var(--hover) 0 10px 25px;
 }
 
-#about .content {
-  color: var(--text);
-  text-align: center;
-  align-items: center;
+section .content .sectionHeading {
+  font-weight: 600;
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 
-#about .content p {
-  text-align: left;
-  margin: 0 auto;
-  max-width: 800px;
-  line-height: 1.7;
+#about .content .historyDesc {
+  font-weight: 200;
+  font-size: 16px;
+  text-align: justify;
 }
 
-#about .bu-con {
+#board .content .cardContainer {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 40px;
+  width: 100%;
   justify-content: center;
-  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+  z-index: 1;
 }
 
-#about .content button {
-  min-width: 180px;
-  padding: 0.75rem 1.5rem;
-  background: transparent;
+#board .content .cardContainer .card {
+  width: 250px;
+  background: #ffffff16;
+  backdrop-filter: blur(5px);
   border: 1px solid var(--surface-border);
-  border-radius: 999px;
-  color: var(--text);
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  box-shadow: 0 0 20px var(--surface-glow);
+  border-radius: 16px;
+  padding: 30px;
 }
 
-#about .content button:hover {
-  background: rgba(255, 223, 159, 0.15);
-  color: #2b0000;
-  border-color: var(--hover);
-  box-shadow: 0 0 18px var(--surface-glow);
+#board .content .cardContainer .card .cardImg {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 10px;
 }
 
-#projects .content {
-  color: var(--text);
-  text-align: center;
+#board .content .cardContainer .card .cardInfo {
+  padding: 10px;
+}
+
+#board .content .cardContainer .card .cardInfo .cardName {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+#board .content .cardContainer .card .cardInfo .cardTitle {
+  font-weight: 200;
+  font-size: 14px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -455,7 +463,7 @@ section .content {
 
   nav .navBrand .navTitle {
     font-size: 0.9rem;
-    padding-left: 6px;
+    padding-left: 15px;
     margin-left: 6px;
   }
 
