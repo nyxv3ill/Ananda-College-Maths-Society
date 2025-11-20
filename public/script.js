@@ -1,11 +1,8 @@
-let navToggle = document.getElementById("navToggle");
-let nav = document.getElementById("nav");
+const navToggle = document.getElementById("navToggle");
+const nav = document.getElementById("nav");
 
-navToggle.addEventListener("click", (e)=>{
-    e.preventDefault();
-    if(nav.className != "toggled"){
-        nav.className = "toggled";
-    } else{
-        nav.className = "";
-    }
-})
+navToggle.addEventListener("click", (e) => {
+  e.preventDefault();
+  const isOpen = nav.classList.toggle("is-open");
+  navToggle.setAttribute("aria-expanded", isOpen);
+});

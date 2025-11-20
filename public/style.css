@@ -7,16 +7,6 @@
   --alert: #ff4fa3;
 }
 
-/* 
-:root {
-  --main: #250602;
-  --text: #f2f4ff;
-  --cards: #d22d18;
-  --hover: rgb(233, 113, 113);
-  --button: #6c63ff;
-  --alert: #ff4fa3;
-} */
-
 * {
   padding: 0;
   margin: 0;
@@ -27,9 +17,22 @@
 }
 
 body {
-  background-color: #000013;
+  background-color: var(--main);
+  color: var(--text);
   width: 100%;
-  height: 1000vh;
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font: inherit;
 }
 
 nav {
@@ -38,16 +41,20 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-  background: var(--main);
+  padding: 0 clamp(1rem, 4vw, 3rem);
+  background: rgba(0, 0, 19, 0.96);
+  backdrop-filter: blur(10px);
   box-shadow: rgba(0, 0, 0, 0.5) 0 2px 10px;
-  z-index: 3;
+  z-index: 10;
   position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .navBrand {
   display: flex;
   align-items: center;
+  gap: 12px;
 }
 
 nav .navBrand .navLogo {
@@ -56,28 +63,31 @@ nav .navBrand .navLogo {
 
 nav .navBrand .navTitle {
   color: var(--text);
-  font-size: 20px;
+  font-size: clamp(1rem, 2vw, 1.3rem);
   font-weight: bold;
   border-left: var(--text) solid 2px;
   padding-left: 10px;
   margin-left: 10px;
+  white-space: nowrap;
 }
 
-nav #nav {
+.navLinks {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  list-style: none;
 }
 
 nav #navToggle {
   display: none;
-  font-size: 18px;
+  font-size: 1.25rem;
   cursor: pointer;
   border-radius: 50%;
   transition: background ease-in-out 0.2s, color ease-in-out 0.2s;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   color: var(--text);
+  background: transparent;
 }
 
 nav #navToggle:hover {
@@ -85,7 +95,7 @@ nav #navToggle:hover {
   color: var(--main);
 }
 
-nav #nav li {
+.navLinks li {
   list-style: none;
   display: inline-block;
   padding: 10px;
@@ -94,42 +104,54 @@ nav #nav li {
   box-shadow: none;
 }
 
-nav #nav li:hover {
+.navLinks li:hover {
   box-shadow: inset #0000006d 0 0 5px;
   background: var(--hover);
   color: var(--main);
 }
-nav #nav li:hover a {
+.navLinks li:hover a {
   color: var(--main);
 }
 
-nav #nav li a {
+.navLinks li a {
   transition: color ease-in-out 0.2s;
   text-decoration: none;
   color: var(--text);
-  font-size: 12px;
+  font-size: 0.85rem;
   font-weight: bold;
 }
 
 section {
   display: flex;
-  z-index: 2;
+  justify-content: center;
   width: 100%;
-  height: 100vh;
   background: var(--main);
+  position: relative;
+  z-index: 2;
+  scroll-margin-top: 80px;
 }
 
 section .content {
   display: flex;
-  width: 100%;
-  height: 100%;
-  padding: 50px;
+  flex-direction: column;
+  width: min(1200px, 100%);
+  min-height: 100%;
+  padding: clamp(3rem, 7vw, 5rem) clamp(1.5rem, 6vw, 4rem);
+  margin: 0 auto;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+#main {
+  min-height: 100vh;
 }
 
 #main .content {
   margin-top: 60px;
+  min-height: calc(100vh - 60px);
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: clamp(2rem, 6vw, 6rem);
 }
 
 #main .bg {
@@ -147,12 +169,12 @@ section .content {
 
 #main .content .titlecontainer .title {
   color: var(--hover);
-  font-size: 60px;
+  font-size: clamp(2.5rem, 6vw, 3.75rem);
   text-align: center;
 }
 
 #main .content .logo {
-  width: 700px;
+  width: min(45vw, 600px);
   height: auto;
 }
 
@@ -165,250 +187,231 @@ section .content {
 
 #main .content .titlecontainer .tagline {
   color: var(--text);
-  font-size: 20px;
+  font-size: clamp(0.95rem, 2vw, 1.25rem);
   text-transform: uppercase;
-  letter-spacing: 15px;
-  margin-top: 20px;
+  letter-spacing: 0.6rem;
+  margin-top: 15px;
 }
 
 #main .content .titlecontainer .joinus {
-  margin-top: 50px;
+  margin-top: 40px;
   background-color: var(--hover);
-  padding: 15px 35px;
-  border-radius: 50px;
-  font-size: 20px;
+  padding: 0.9rem 2.5rem;
+  border-radius: 999px;
+  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
   color: var(--main);
-  box-shadow: var(--hover) 0 0 10px;
+  box-shadow: var(--hover) 0 0 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 #main .content .joinus:hover {
   cursor: pointer;
+  transform: translateY(-2px);
+  box-shadow: var(--hover) 0 10px 25px;
+}
+#about .content {
+  color: var(--text);
+  text-align: center;
+  align-items: center;
 }
 
-@media screen and (max-width: 1500px) {
-  #main .content .titlecontainer .title {
-    color: var(--hover);
-    font-size: 50px;
-    text-align: center;
-  }
-
-  #main .content .titlecontainer .tagline {
-    color: var(--text);
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 15px;
-    margin-top: 20px;
-  }
-  #main .content .logo {
-    width: 600px;
-  }
-
-  #main .content .titlecontainer .joinus {
-    margin-top: 40px;
-    background-color: var(--hover);
-    padding: 15px 35px;
-    border-radius: 50px;
-    font-size: 15px;
-    color: var(--main);
-    box-shadow: var(--hover) 0 0 10px;
-  }
+#about .content p {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 800px;
+  line-height: 1.7;
 }
 
-@media screen and (max-width: 1300px) {
+#about .bu-con {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+#about .content button {
+  min-width: 180px;
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  border: 1px solid var(--hover);
+  border-radius: 999px;
+  color: var(--text);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+#about .content button:hover {
+  background-color: var(--hover);
+  color: var(--main);
+  border-color: var(--hover);
+}
+
+#projects .content {
+  color: var(--text);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1200px) {
   #main .content {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-
-  #main .content .logo {
-    margin-bottom: 40px;
-  }
-
-  #main .content .titlecontainer .title {
-    color: var(--hover);
-    font-size: 45px;
     text-align: center;
   }
 
-  #main .content .titlecontainer .tagline {
-    color: var(--text);
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 15px;
-    margin-top: 20px;
+  #main .content .logo {
+    width: min(60vw, 420px);
   }
 
-  #main .content .titlecontainer .joinus {
-    margin-top: 40px;
-    background-color: var(--hover);
-    padding: 15px 35px;
-    border-radius: 50px;
-    font-size: 15px;
-    color: var(--main);
-    box-shadow: var(--hover) 0 0s 10px;
+  #main .content .titlecontainer .tagline {
+    letter-spacing: 0.4rem;
   }
 }
 
-@media screen and (max-width: 700px) {
-  nav #nav {
-    display: none;
-    background: var(--main);
+@media screen and (max-width: 900px) {
+  nav {
+    height: 56px;
+  }
+
+  nav .navBrand .navLogo {
+    width: 45px;
+  }
+
+  .navLinks {
+    position: absolute;
+    top: 60px;
+    right: clamp(1rem, 4vw, 3rem);
+    flex-direction: column;
+    align-items: flex-end;
+    background: rgba(0, 0, 19, 0.98);
+    padding: 1.25rem;
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0 20px 35px;
+    gap: 0.5rem;
+    min-width: 220px;
+    transform-origin: top right;
+    transform: scaleY(0.85);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .navLinks.is-open {
+    transform: scaleY(1);
+    opacity: 1;
+    pointer-events: auto;
   }
 
   nav #navToggle {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
   }
 
-  nav #nav.toggled {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    right: 10px;
-    top: 70px;
-    align-items: end;
-    border-radius: 12px;
-    box-shadow: #00000049 0 0 10px;
-    padding: 20px;
-  }
-
-  nav #nav.toggled li {
+  .navLinks li {
     display: block;
     width: 100%;
     text-align: right;
   }
 
-  #main .content .logo {
-    width: 400px;
-    margin-bottom: 40px;
+  .navLinks li a {
+    font-size: 1rem;
+    display: block;
+    padding: 0.3rem 0;
+  }
+
+  #main .content {
+    padding-top: 2rem;
   }
 
   #main .content .titlecontainer .tagline {
-    margin-top: 5px;
-    text-align: center;
+    letter-spacing: 0.3rem;
   }
 
-  #main .content .titlecontainer .joinus {
-    margin-top: 40px;
+  #about .content p {
+    text-align: center;
   }
 }
 
 @media screen and (max-width: 600px) {
-  #main .content .logo {
-    width: 300px;
-  }
-
-  #main .content .titlecontainer .title {
-    font-size: 35px;
-  }
-
-  #main .content .titlecontainer .tagline {
-    font-size: 10px;
-  }
-
-  #main .content .titlecontainer .joinus {
-    font-size: 12px;
-    padding: 8px 15px;
-    margin-top: 30px;
-  }
-}
-
-@media screen and (max-width: 360px) {
-  #main .content .titlecontainer .title {
-    font-size: 20px;
-  }
-
-  #main .content .titlecontainer .tagline {
-    font-size: 8px;
-    letter-spacing: 8px;
-  }
-
-  #main .content .logo {
-    width: 200px;
-  }
-
   nav {
-    height: 40px;
-  }
-
-  nav .navBrand .navLogo {
-    width: 20px;
-  }
-
-  nav .navBrand {
-    gap: 10px;
-  }
-
-  nav .navBrand .navTitle {
-    font-size: 14px;
-  }
-
-  nav #navToggle {
-    font-size: 12px;
-  }
-
-  nav #nav.toggled {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    right: 10px;
-    top: 50px;
-    align-items: end;
-    border-radius: 12px;
-    box-shadow: #00000049 0 0 10px;
-    padding: 10px;
-  }
-
-  nav #nav.toggled {
-    gap: 5px;
-  }
-
-  nav #nav.toggled li a {
-    font-size: 10px;
-  }
-
-  nav #nav.toggled li {
-    display: block;
-    width: 100%;
-    text-align: right;
-    padding: 5px;
+    padding: 0 1rem;
   }
 
   #main .content {
-    margin-top: 40px;
+    margin-top: 50px;
+    min-height: auto;
+  }
+
+  #main .content .titlecontainer .title {
+    font-size: clamp(2rem, 10vw, 2.5rem);
+  }
+
+  #main .content .titlecontainer .tagline {
+    font-size: 0.85rem;
+    letter-spacing: 0.2rem;
+  }
+
+  #main .content .logo {
+    width: min(70vw, 320px);
+  }
+
+  .navLinks {
+    right: 1rem;
+    min-width: auto;
+  }
+
+  #main .content .titlecontainer .joinus {
+    width: 100%;
+    max-width: 260px;
+    font-size: 0.9rem;
+    padding: 0.75rem 1.5rem;
+    box-shadow: var(--hover) 0 0 10px;
+  }
+
+  #about .content button {
+    width: 100%;
   }
 }
 
-#about .content {
-  color: white;
-  flex-direction: column;
-  text-align: center;
-}
+@media screen and (max-width: 420px) {
+  nav {
+    height: 48px;
+  }
 
-#about .content p {
-  text-align: justify;
-  margin: 20px;
-}
+  nav .navBrand .navLogo {
+    width: 32px;
+  }
 
-#about .content button {
-  width: 200px;
-  padding: 10px;
-  background-color: transparent;
-  border: 1px solid rgb(12, 12, 98);
-  border-radius: 20px;
-  color: white;
-  margin-bottom: 10px;
-  margin-left: 10px;
-}
+  nav .navBrand .navTitle {
+    font-size: 0.9rem;
+    padding-left: 6px;
+    margin-left: 6px;
+  }
 
-#about .content button:hover {
-  border: 1px solid rgb(80, 80, 222);
-}
+  nav #navToggle {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
 
-#projects .content {
-  color: white;
-  text-align: center;
+  .navLinks {
+    top: 52px;
+  }
+
+  #main .content {
+    margin-top: 48px;
+  }
+
+  #main .content .titlecontainer .tagline {
+    letter-spacing: 0.15rem;
+  }
+
+  #main .content .titlecontainer .joinus {
+    max-width: 220px;
+    font-size: 0.85rem;
+    padding: 0.65rem 1.25rem;
+    box-shadow: var(--hover) 0 0 8px;
+  }
 }
