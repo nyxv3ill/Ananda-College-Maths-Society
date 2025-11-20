@@ -1,10 +1,33 @@
 :root {
+  --main: #0b0103;
+  --text: #fdf6eb;
+  --cards: #1f0108;
+  --hover: #ffb347;
+  --button: #ffce7a;
+  --alert: #ffd8a6;
+  --surface: rgba(255, 215, 165, 0.08);
+  --surface-border: rgba(255, 215, 165, 0.35);
+  --surface-glow: rgba(255, 207, 148, 0.45);
+  --title-gold: linear-gradient(
+    120deg,
+    #ffe5ad 0%,
+    #ffd37e 30%,
+    #ffb347 60%,
+    #ffdf9f 100%
+  );
+}
+/* 
+:root {
   --main: #000013;
   --text: #f2f4ff;
   --cards: #0a0a33;
   --hover: #2de2e6;
   --button: #6c63ff;
   --alert: #ff4fa3;
+} */
+
+html {
+  scroll-behavior: smooth;
 }
 
 * {
@@ -18,9 +41,24 @@
 
 body {
   background-color: var(--main);
+  /* background-image: radial-gradient(
+    circle at 35% 15%,
+    #210107 0%,
+    #0d0003 45%,
+    #040001 80%,
+    #000000 100%
+  ); */
+  background-image: radial-gradient(
+    circle at 35% 15%,
+    #3a0202ed 0%,
+    #1a0101ba 45%,
+    #040001 80%,
+    #000000 100%
+  );
   color: var(--text);
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  height: 300vh;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -42,9 +80,10 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 clamp(1rem, 4vw, 3rem);
-  background: rgba(0, 0, 19, 0.96);
-  backdrop-filter: blur(10px);
-  box-shadow: rgba(0, 0, 0, 0.5) 0 2px 10px;
+  /* background: rgba(10, 1, 1, 0.9); */
+  background: rgba(23, 1, 1, 0.9);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
   z-index: 10;
   position: fixed;
   top: 0;
@@ -98,37 +137,43 @@ nav #navToggle:hover {
 .navLinks li {
   list-style: none;
   display: inline-block;
-  padding: 10px;
-  border-radius: 5px;
-  transition: background ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
-  box-shadow: none;
-}
-
-.navLinks li:hover {
-  box-shadow: inset #0000006d 0 0 5px;
-  background: var(--hover);
-  color: var(--main);
-}
-.navLinks li:hover a {
-  color: var(--main);
+  padding: 0;
 }
 
 .navLinks li a {
-  transition: color ease-in-out 0.2s;
   text-decoration: none;
+}
+
+.navButton {
+  width: 100%;
+  padding: 10px 18px;
+  border-radius: 5px;
+  border: none;
+  background: transparent;
   color: var(--text);
   font-size: 0.85rem;
   font-weight: bold;
+  cursor: pointer;
+  transition: background ease-in-out 0.2s, box-shadow ease-in-out 0.2s,
+    color ease-in-out 0.2s;
+}
+
+.navButton:hover,
+.navButton:focus-visible {
+  background: var(--hover);
+  color: #2b0000;
+  box-shadow: inset var(--surface-glow) 0 0 12px;
 }
 
 section {
   display: flex;
   justify-content: center;
   width: 100%;
-  background: var(--main);
+  background: transparent;
   position: relative;
   z-index: 2;
   scroll-margin-top: 80px;
+  min-height: 100vh;
 }
 
 section .content {
@@ -139,6 +184,7 @@ section .content {
   padding: clamp(3rem, 7vw, 5rem) clamp(1.5rem, 6vw, 4rem);
   margin: 0 auto;
   gap: clamp(1.5rem, 3vw, 2.5rem);
+  background: transparent;
 }
 
 #main {
@@ -168,9 +214,13 @@ section .content {
 }
 
 #main .content .titlecontainer .title {
-  color: var(--hover);
+  color: transparent;
   font-size: clamp(2.5rem, 6vw, 3.75rem);
+  font-weight: 500;
   text-align: center;
+  background: var(--title-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 #main .content .logo {
@@ -195,12 +245,12 @@ section .content {
 
 #main .content .titlecontainer .joinus {
   margin-top: 40px;
-  background-color: var(--hover);
+  background-color: #ffd39b;
   padding: 0.9rem 2.5rem;
   border-radius: 999px;
   font-size: clamp(0.9rem, 1.6vw, 1.1rem);
-  color: var(--main);
-  box-shadow: var(--hover) 0 0 15px;
+  color: #2b0000;
+  box-shadow: 0 10px 35px var(--surface-glow);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -232,24 +282,24 @@ section .content {
 #about .content button {
   min-width: 180px;
   padding: 0.75rem 1.5rem;
-  background-color: transparent;
-  border: 1px solid var(--hover);
+  background: transparent;
+  border: 1px solid var(--surface-border);
   border-radius: 999px;
   color: var(--text);
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 #about .content button:hover {
-  background-color: var(--hover);
-  color: var(--main);
+  background: rgba(255, 223, 159, 0.15);
+  color: #2b0000;
   border-color: var(--hover);
+  box-shadow: 0 0 18px var(--surface-glow);
 }
 
 #projects .content {
   color: var(--text);
   text-align: center;
-  align-items: center;
-  justify-content: center;
 }
 
 @media screen and (max-width: 1200px) {
@@ -284,7 +334,7 @@ section .content {
     right: clamp(1rem, 4vw, 3rem);
     flex-direction: column;
     align-items: flex-end;
-    background: rgba(0, 0, 19, 0.98);
+    background: rgba(18, 0, 6, 0.97);
     padding: 1.25rem;
     border-radius: 16px;
     box-shadow: rgba(0, 0, 0, 0.45) 0 20px 35px;

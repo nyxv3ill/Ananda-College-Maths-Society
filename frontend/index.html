@@ -50,83 +50,94 @@
     <!-- #### /Metadata #### -->
   </head>
   <body>
-    <!-- #### Navbar #### -->
-
-    <nav>
-      <div class="navBrand">
-        <img src="/acsu.png" alt="logo" class="navLogo" />
-        <!-- To be changed -->
-        <h1 class="navTitle">ACMS</h1>
-      </div>
-      <ul id="nav" class="navLinks">
-        <li><a href="#main">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#board">Board</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#achievements">Achievements</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button
-        id="navToggle"
-        class="fa-solid fa-bars"
-        aria-label="Toggle navigation menu"
-        aria-controls="nav"
-        aria-expanded="false"
-        type="button"
-      ></button>
-    </nav>
-
-    <!-- #### /Navabar #### -->
-
-    <section id="main">
-      <div class="bg"></div>
-      <div class="content">
-        <img src="/acsu.png" alt="Logo" class="logo" />
-        <div class="titlecontainer">
-          <h1 class="title">Ananda College<br />Mathematics Society</h1>
-          <h3 class="tagline">Beyond The Zenith</h3>
-          <button class="joinus">Join Us</button>
+    <header class="site-header">
+      <nav aria-label="Primary">
+        <div class="navBrand">
+          <img src="/acms.png" alt="ACMS crest" class="navLogo" />
+          <p class="navTitle" aria-label="Ananda College Mathematics Society">
+            ACMS
+          </p>
         </div>
-      </div>
-    </section>
+        <ul id="nav" class="navLinks">
+          <li class="navItem">
+            <a href="#main"
+              ><button class="navButton" type="button">Home</button></a
+            >
+          </li>
+          <li class="navItem">
+            <a href="#about"
+              ><button class="navButton" type="button">About</button></a
+            >
+          </li>
+          <li class="navItem">
+            <a href="#board"
+              ><button class="navButton" type="button">Board</button></a
+            >
+          </li>
+          <li class="navItem">
+            <a href="#projects"
+              ><button class="navButton" type="button">Projects</button></a
+            >
+          </li>
+          <li class="navItem">
+            <a href="#achievements"
+              ><button class="navButton" type="button">Achievements</button></a
+            >
+          </li>
+          <li class="navItem">
+            <a href="#contact"
+              ><button class="navButton" type="button">Contact</button></a
+            >
+          </li>
+        </ul>
+        <button
+          id="navToggle"
+          class="fa-solid fa-bars"
+          aria-label="Toggle navigation menu"
+          aria-controls="nav"
+          aria-expanded="false"
+          type="button"
+        ></button>
+      </nav>
+    </header>
 
-    <section id="about">
-      <div class="content">
-        <h1>About ACMS</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
-          qui deserunt ipsam sapiente molestias, magni dolor id! Reprehenderit,
-          iste. Nemo sunt consequatur velit maiores veritatis aspernatur
-          numquam, ipsum quis quo.Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Consectetur qui deserunt ipsam sapiente molestias,
-          magni dolor id! Reprehenderit, iste. Nemo sunt consequatur velit
-          maiores veritatis aspernatur numquam, ipsum quis quo.Lorem ipsum dolor
-          sit amet consectetur adipisicing elit. Consectetur qui deserunt ipsam
-          sapiente molestias, magni dolor id! Reprehenderit, iste. Nemo sunt
-          consequatur velit maiores veritatis aspernatur numquam, ipsum quis
-          quo.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Consectetur qui deserunt ipsam sapiente molestias, magni dolor id!
-          Reprehenderit, iste. Nemo sunt consequatur velit maiores veritatis
-          aspernatur numquam, ipsum quis quo.Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Consectetur qui deserunt ipsam sapiente
-          molestias, magni dolor id! Reprehenderit, iste. Nemo sunt consequatur
-          velit maiores veritatis aspernatur numquam, ipsum quis quo.Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Consectetur qui deserunt
-          ipsam sapiente molestias, magni dolor id! Reprehenderit, iste. Nemo
-          sunt consequatur velit maiores veritatis aspernatur numquam, ipsum
-          quis quo.
-        </p>
-        <div class="bu-con">
-          <button>Borad of officials</button>
-          <button>Contact</button>
+    <main>
+      <section id="main">
+        <div class="bg" aria-hidden="true"></div>
+        <div class="content">
+          <img src="/acms.png" alt="ACMS emblem" class="logo" />
+          <div class="titlecontainer">
+            <h1 class="title">Ananda College<br />Mathematics Society</h1>
+            <p class="tagline" role="doc-subtitle">Beyond The Zenith</p>
+            <button class="joinus" type="button">Join Us</button>
+          </div>
         </div>
-      </div>
-    </section>
-    <section id="projects">
-      <div class="content">
-        <h1>Projects</h1>
-      </div>
-    </section>
+      </section>
+
+      <section id="about">
+        <div class="content">
+          <header class="section-heading">
+            <h2>About ACMS</h2>
+          </header>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+            qui deserunt ipsam sapiente molestias, magni dolor id!
+            Reprehenderit, iste. Nemo sunt consequatur velit maiores veritatis
+            aspernatur numquam, ipsum quis quo. Lorem ipsum dolor sit amet
+            consectetur adipisicing elit.
+          </p>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="content">
+          <header class="section-heading">
+            <h2>Projects</h2>
+          </header>
+          <p>Stay tuned for our upcoming mathematical endeavors.</p>
+        </div>
+      </section>
+    </main>
     <script src="/script.js"></script>
   </body>
 </html>
