@@ -290,23 +290,56 @@ section .content .sectionHeading {
 
 #board .content .cardContainer {
   display: flex;
-  flex-direction: row;
-  gap: 40px;
-  width: 100%;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
   z-index: 1;
 }
 
-#board .content .cardContainer .card {
-  width: 250px;
+#board .content .cardContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#board .content .card {
   background: #ffffff16;
   backdrop-filter: blur(5px);
   border: 1px solid var(--surface-border);
   box-shadow: 0 0 20px var(--surface-glow);
   border-radius: 16px;
   padding: 30px;
+  width: 100%;
+  max-width: 250px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 auto;
+}
+
+#board .content .board-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  width: 100%;
+  justify-content: center;
+  margin: 40px auto 0;
+  padding: 0 20px;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+#board .content .board-members .card,
+#board .content .president-card {
+  width: 100%;
+  max-width: 250px;
+  margin: 0;
 }
 
 #board .content .cardContainer .card .cardImg {
@@ -317,6 +350,7 @@ section .content .sectionHeading {
 
 #board .content .cardContainer .card .cardInfo {
   padding: 10px;
+  height: 100%;
 }
 
 #board .content .cardContainer .card .cardInfo .cardName {
